@@ -1,10 +1,16 @@
 <p align="center">
-  <a href="https://github.com/">
+  <a href="https://github.com/" style="display: inline-block;">
     <picture>
       <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" height="128">
     </picture>
-    <h1 align="center" style="border-bottom: none">.blank</h1>
+    <div id="user-content-toc">
+      <ul>
+       <summary align="center">
+         <h1 align="center">.blank</h1>
+        </summary>
+      </ul>
+    </div>
   </a>
 </p>
 
@@ -23,7 +29,8 @@ With .blank (Dot Blank), you can easily create, edit and connect configurational
 
 ## Technology stack
 
-Backend: Node.js, Express
+Backend: Node.js, Express  
+
 Frontend: TypeScript, Next.js, Zustand, TailwindCSS, Vite, i18next
 
 ## Licensing 
