@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://github.com/" style="display: inline-block;">
+  <a href="https://github.com/mushka-n/.blank">
     <picture>
-      <source srcset="https://i.imgur.com/pTL7Naa.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://i.imgur.com/pTL7Naa.png">
       <img src="https://i.imgur.com/pTL7Naa.png" height="128">
     </picture>
     <div id="user-content-toc">
