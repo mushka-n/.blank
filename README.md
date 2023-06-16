@@ -1,6 +1,7 @@
+<p></p>
 <p align="center">
   <a href="https://github.com/mushka-n/.blank">
-    <picture>
+    <picture">
       <source media="(prefers-color-scheme: dark)" srcset="https://i.imgur.com/pTL7Naa.png">
       <img src="https://i.imgur.com/pTL7Naa.png" height="128">
     </picture>
