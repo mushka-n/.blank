@@ -4,7 +4,7 @@
       <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" height="128">
     </picture>
-    <h1 align="center">.blank</h1>
+    <h1 align="center" style="border-bottom: none">.blank</h1>
   </a>
 </p>
 
