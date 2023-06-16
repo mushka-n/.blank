@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/" style="display: inline-block;">
     <picture>
-      <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" height="128">
+      <source srcset="https://i.imgur.com/pTL7Naa.png">
+      <img src="https://i.imgur.com/pTL7Naa.png" height="128">
     </picture>
     <div id="user-content-toc">
       <ul>
