@@ -1,0 +1,41 @@
+{
+  "folders": [
+    {
+      "name": "🌎 root",
+      "path": "./"
+    },
+    {
+      "name": "📢 @/public",
+      "path": "./public"
+    },
+    {
+      "name": "📱 @/src",
+      "path": "./src"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/.next": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Dev",
+        "type": "shell",
+        "command": "npm run dev",
+        "problemMatcher": []
+      },
+      {
+        "label": "Prisma",
+        "type": "shell",
+        "command": "npx prisma studio",
+        "problemMatcher": []
+      }
+    ]
+  }
+}
