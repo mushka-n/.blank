@@ -1,6 +1,6 @@
 <p></p>
 <p align="center">
-  <a href="https://github.com/mushka-n/.blank">
+  <a href="https://blank-amber.vercel.app/">
     <picture">
       <source media="(prefers-color-scheme: dark)" srcset="https://i.imgur.com/pTL7Naa.png">
       <img src="https://i.imgur.com/pTL7Naa.png" height="128">
@@ -40,6 +40,6 @@ Frontend: TypeScript, Next.js, Zustand, TailwindCSS, Vite, i18next
 
 ## Project info
 
-Official website: [https://www.dot.blank](https://github.com/)
+Official website: [blank-amber.vercel.app](https://blank-amber.vercel.app/)
 
-Code repository: [https://github.com/mushka-n/.blank](https://github.com/mushka-n/.blank)
+Code repository: [github.com/mushka-n/.blank](https://github.com/mushka-n/.blank)
