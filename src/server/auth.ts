@@ -1,14 +1,16 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { type GetServerSidePropsContext } from "next";
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { type GetServerSidePropsContext } from 'next';
 import {
-  getServerSession,
-  type NextAuthOptions,
   type DefaultSession,
-} from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
-import GithubProvider from "next-auth/providers/github";
-import { env } from "~/env.mjs";
-import { prisma } from "~/server/db";
+  type NextAuthOptions,
+  getServerSession,
+} from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import DiscordProvider from 'next-auth/providers/discord';
+import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+import { env } from '~/env.mjs';
+import { prisma } from '~/server/db';
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -16,13 +18,13 @@ import { prisma } from "~/server/db";
  *
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session extends DefaultSession {
     user: {
       id: string;
       // ...other properties
       // role: UserRole;
-    } & DefaultSession["user"];
+    } & DefaultSession['user'];
   }
 
   // interface User {
@@ -31,11 +33,6 @@ declare module "next-auth" {
   // }
 }
 
-/**
- * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
- *
- * @see https://next-auth.js.org/configuration/options
- */
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session: ({ session, user }) => ({
@@ -47,6 +44,9 @@ export const authOptions: NextAuthOptions = {
     }),
   },
   adapter: PrismaAdapter(prisma),
+  // secret: process.env.NEXTAUTH_SECRET,
+  // session: { strategy: 'jwt' },
+  // debug: env.NODE_ENV === 'development',
   providers: [
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
@@ -56,15 +56,33 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GITHUB_ID,
       clientSecret: env.GITHUB_SECRET,
     }),
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    }),
+    CredentialsProvider({
+      name: 'credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text', placeholder: 'Enter email' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials, req) {
+        // Add logic here to look up the user from the credentials supplied
+        console.log('credentials');
+        const user = { id: '1', name: 'jsmith', email: 'jsmith@example.com' };
+        return user;
+
+        if (user) {
+          // Any object returned will be saved in `user` property of the JWT
+          return user;
+        } else {
+          // If you return null then an error will be displayed advising the user to check their details.
+          return null;
+
+          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        }
+      },
+    }),
   ],
 };
 
@@ -74,8 +92,8 @@ export const authOptions: NextAuthOptions = {
  * @see https://next-auth.js.org/configuration/nextjs
  */
 export const getServerAuthSession = (ctx: {
-  req: GetServerSidePropsContext["req"];
-  res: GetServerSidePropsContext["res"];
+  req: GetServerSidePropsContext['req'];
+  res: GetServerSidePropsContext['res'];
 }) => {
   return getServerSession(ctx.req, ctx.res, authOptions);
 };
